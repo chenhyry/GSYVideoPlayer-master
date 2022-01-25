@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/set_relative"
+    android:layout_width="wrap_content"
+    android:layout_height="160dp"
+    android:layout_alignParentRight="true"
+    android:clickable="true"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="145dp"
+        android:background="@color/alphablack"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/version_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_bg"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/checkVersionIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:src="@drawable/check_version_icon" />
+
+            <TextView
+                android:id="@+id/versionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="28dp"
+            android:background="@color/white" />
+
+        <ImageView
+            android:id="@+id/networkStateIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:src="@drawable/wifi_icon" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="28dp"
+            android:background="@color/white" />
+
+        <com.hxty.schoolnet.widget.DigitalClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
+            android:layout_x="5dp"
+            android:layout_y="5dp"
+            android:shadowColor="@android:color/white"
+            android:shadowRadius="2.0"
+            android:textColor="@android:color/white"
+            android:textSize="23sp" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="28dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/setting_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/set_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="设置"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="28dp"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/loginout_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="23sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/shang_san_jiao_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="15dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp"
+        android:src="@drawable/shang_san_jiao" />
+</RelativeLayout>

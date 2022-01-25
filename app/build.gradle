@@ -1,0 +1,79 @@
+apply plugin: "com.android.application"
+
+apply from: "$rootDir/gradle/base.gradle"
+apply from: "../gradle/exported.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.example.gsyvideoplayer"
+        versionCode 21
+        versionName PROJ_VERSION
+
+        multiDexEnabled true
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86"
+        }
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../release.jks")
+            storePassword "123456"
+            keyAlias "debug"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation androidDependencies.appCompat
+    implementation androidDependencies.recyclerView
+    implementation androidDependencies.core
+    implementation viewDependencies.danmakuFlameMaster
+    implementation viewDependencies.ndkBitmap
+    implementation viewDependencies.glide
+    implementation androidDependencies.design
+    implementation androidDependencies.viewpager2
+
+    implementation project(":gsyVideoPlayer")
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer:$gsyVideoVersion"
+
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-java:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-armv64:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-armv7a:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-armv5:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-x86:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-x86_64:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-ex_so:$gsyVideoVersion"
+//    implementation "com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer-exo_player2:$gsyVideoVersion"
+
+    implementation dataDependencies.okhttpUtil
+    implementation dataDependencies.okhttp
+
+    implementation dataDependencies.permissionsDispatcher
+    annotationProcessor dataDependencies.permissionsDispatcherProcessor
+
+    debugImplementation dataDependencies.leakcanary
+}

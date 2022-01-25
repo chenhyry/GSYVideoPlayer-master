@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/surface_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
+
+    <!-- 封面图-->
+    <RelativeLayout
+        android:id="@+id/thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
+        android:id="@+id/rlBottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#88000000"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/ic_paly_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_video_pause"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="centerInside" />
+
+        <SeekBar
+            android:id="@+id/progress"
+            style="@style/SeekBarAppTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="3dp"
+            android:layout_toEndOf="@+id/ic_paly_pause"
+            android:max="100" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progress"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="18dp"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/xie_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progress"
+            android:layout_toStartOf="@+id/total"
+            android:text="/"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progress"
+            android:layout_toStartOf="@+id/xie_line"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/switchSize"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:minEms="2"
+            android:text="标准"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fullscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/video_enlarge"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_show_list"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_below="@+id/progress"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9.8dp"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/iv_volume"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_below="@+id/progress"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="7dp"
+            android:visibility="gone" />
+
+        <SeekBar
+            android:id="@+id/volume_progress"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="4dp"
+            android:layout_toEndOf="@+id/iv_volume"
+            android:background="@null"
+            android:max="100"
+            android:maxHeight="5dp"
+            android:minHeight="5dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:progressDrawable="@drawable/custom_video_seek_volume_progress"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12.2dp"
+            android:layout_toEndOf="@+id/volume_progress"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTop"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#88000000"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/title_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="25dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--画面比例-->
+        <TextView
+            android:id="@+id/moreScale"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:minEms="5"
+            android:paddingLeft="10dp"
+            android:text="默认比例"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

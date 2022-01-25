@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/main_view_logo" />
+
+    <TextView
+        android:id="@+id/to_h5_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="66dp"
+        android:text="返回"
+        android:textColor="@color/white"
+        android:textSize="54sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/school_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/school_name_bg"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/xia_san_jiao_iv"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="210dp"
+        android:background="@drawable/selector_bg"
+        android:focusable="true"
+        android:paddingBottom="25dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="3dp"
+        android:src="@drawable/xia_san_jiao" />
+
+    <include layout="@layout/main_right_set_layout" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="230dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:id="@+id/column_frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+    </HorizontalScrollView>
+
+    <com.hxty.schoolnet.widget.AutoScrollTextView
+        android:id="@+id/marquee_notice_tv"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_bg_bottom_tv"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="32sp" />
+
+    <include layout="@layout/state_error_forweb" />
+
+    <include layout="@layout/dialog_input" />
+
+    <include layout="@layout/dialog_login" />
+
+    <ImageView
+        android:id="@+id/click_me_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="200dp"
+        android:src="@drawable/click_me"
+        android:visibility="gone" />
+</RelativeLayout>

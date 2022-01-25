@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:background="#b000">
+
+        <RadioGroup
+            android:id="@+id/rgType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:checked="true"
+                android:drawableStart="@drawable/login_type"
+                android:drawablePadding="6dp"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="单位用户"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/tab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:drawableStart="@drawable/login_type"
+                android:drawablePadding="6dp"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="普通用户"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etLoginUsername"
+            android:layout_width="360dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:hint="输入账号"
+            android:imeOptions="actionDone"
+            android:lines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rgType" />
+
+        <LinearLayout
+            android:id="@+id/llPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/etLoginUsername"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginUsername">
+
+            <EditText
+                android:id="@+id/etLoginPwd"
+                android:layout_width="360dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                android:hint="输入密码"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnSendCode"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/set_psw_bg"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="获取验证码"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_cancel_btn"
+            android:layout_width="180dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/set_psw_bg"
+            android:text="取消"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/login_submit_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llPassword" />
+
+        <Button
+            android:id="@+id/login_submit_btn"
+            android:layout_width="180dp"
+            android:layout_height="105dp"
+            android:background="@drawable/set_psw_bg"
+            android:text="确定"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/login_cancel_btn"
+            app:layout_constraintTop_toTopOf="@+id/login_cancel_btn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        config {
+            keyAlias 'hxty'
+            keyPassword 'hxty654321'
+            storeFile file('hxty.keystore')
+            storePassword 'hxty654321'
+        }
+    }
+
+    compileSdkVersion 31
+    defaultConfig {
+        applicationId "com.hxty.schoolnet"
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 43
+        versionName "4.3"
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true //混淆
+            shrinkResources true //自动删除没有被引用到的资源 必须同时打开混淆配置
+            zipAlignEnabled true//Zipalign优化
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "xiaoyuanping${variant.name}-v${variant.versionName}_${variant.versionCode}-${getCurrentTime()}.apk"
+        }
+    }
+
+}
+
+
+static def getCurrentTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
+dependencies {
+    implementation fileTree(include: '*.jar', dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'org.xutils:xutils:3.3.4'
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    //okgo
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:4.0.0'
+    //视频播放
+    //完整版引入
+//    implementation 'com.shuyu:GSYVideoPlayer:7.1.4'
+
+    //友盟
+    implementation  'com.umeng.umsdk:common:9.4.4'//必选
+    implementation  'com.umeng.umsdk:asms:1.4.1'//必选
+
+    implementation  'com.umeng.umsdk:share-core:7.1.7'//分享核心库，必选
+    implementation  'com.umeng.umsdk:share-board:7.1.7'//分享面板功能，可选
+
+    implementation  'com.umeng.umsdk:share-wx:7.1.7'//微信完整版
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'//微信官方依赖库，必选
+
+
+    implementation project(":gsyVideoPlayer")
+}

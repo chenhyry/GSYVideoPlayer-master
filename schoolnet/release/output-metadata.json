@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.hxty.schoolnet",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 43,
+      "versionName": "4.3",
+      "outputFile": "xiaoyuanpingrelease-v4.3_43-20220117.apk"
+    }
+  ],
+  "elementType": "File"
+}
