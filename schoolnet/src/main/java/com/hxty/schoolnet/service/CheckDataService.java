@@ -195,19 +195,19 @@ public class CheckDataService extends Service {
     private void getScreenVideo() {
         //学校的要单独多调用一次平台视频接口  平台和学校2个
         if ("1".equals(App.SCHOOLTYPE)) {
-            RequestManager.getInstance().GetScreenVideo(null, new JsonCallback<BaseResponse<ScreenVideo>>() {
+            RequestManager.getInstance().GetScreenVideo(null, new JsonCallback<BaseResponse<Page<ScreenVideo>>>() {
                 @Override
-                public void onSuccess(Response<BaseResponse<ScreenVideo>> response) {
+                public void onSuccess(Response<BaseResponse<Page<ScreenVideo>>> response) {
                     if (response.body().handleResult == null) {
 
-                        RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<ScreenVideo>>() {
+                        RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<Page<ScreenVideo>>>() {
                             @Override
-                            public void onSuccess(Response<BaseResponse<ScreenVideo>> response) {
+                            public void onSuccess(Response<BaseResponse<Page<ScreenVideo>>> response) {
                                 if (App.screenVideoUrls != null) {
                                     App.screenVideoUrls.clear();
                                 }
                                 if (response.body().handleResult != null) {
-                                    ScreenVideo screenVideo = response.body().handleResult;
+                                    Page<ScreenVideo> screenVideo = response.body().handleResult;
                                     if (screenVideo.getTotal() > 0) {
                                         for (int i = 0; i < screenVideo.getRows().size(); i++) {
                                             App.screenVideoUrls.add(screenVideo.getRows().get(i).getLinkUrl());
@@ -220,18 +220,18 @@ public class CheckDataService extends Service {
                         if (App.screenVideoUrls != null) {
                             App.screenVideoUrls.clear();
                         }
-                        ScreenVideo screenVideo = response.body().handleResult;
+                        Page<ScreenVideo> screenVideo = response.body().handleResult;
                         if (screenVideo.getTotal() > 0) {
                             for (int i = 0; i < screenVideo.getRows().size(); i++) {
                                 App.screenVideoUrls.add(screenVideo.getRows().get(i).getLinkUrl());
                             }
                         }
 
-                        RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<ScreenVideo>>() {
+                        RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<Page<ScreenVideo>>>() {
                             @Override
-                            public void onSuccess(Response<BaseResponse<ScreenVideo>> response) {
+                            public void onSuccess(Response<BaseResponse<Page<ScreenVideo>>> response) {
                                 if (response.body().handleResult != null) {
-                                    ScreenVideo screenVideo = response.body().handleResult;
+                                    Page<ScreenVideo> screenVideo = response.body().handleResult;
                                     if (screenVideo.getTotal() > 0) {
                                         for (int i = 0; i < screenVideo.getRows().size(); i++) {
                                             App.screenVideoUrls.add(screenVideo.getRows().get(i).getLinkUrl());
@@ -244,14 +244,14 @@ public class CheckDataService extends Service {
                 }
             });
         } else {
-            RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<ScreenVideo>>() {
+            RequestManager.getInstance().GetScreenVideo(App.loginName, new JsonCallback<BaseResponse<Page<ScreenVideo>>>() {
                 @Override
-                public void onSuccess(Response<BaseResponse<ScreenVideo>> response) {
+                public void onSuccess(Response<BaseResponse<Page<ScreenVideo>>> response) {
                     if (App.screenVideoUrls != null) {
                         App.screenVideoUrls.clear();
                     }
                     if (response.body().handleResult != null) {
-                        ScreenVideo screenVideo = response.body().handleResult;
+                        Page<ScreenVideo> screenVideo = response.body().handleResult;
                         if (screenVideo.getTotal() > 0) {
                             for (int i = 0; i < screenVideo.getRows().size(); i++) {
                                 App.screenVideoUrls.add(screenVideo.getRows().get(i).getLinkUrl());

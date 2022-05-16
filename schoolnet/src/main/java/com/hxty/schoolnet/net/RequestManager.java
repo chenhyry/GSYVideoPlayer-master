@@ -137,12 +137,12 @@ FIRST_CACHE_THEN_REQUEST：先使用缓存，不管是否存在，仍然请求�
     /**
      * 获取屏幕保护程序
      */
-    public void GetScreenVideo(String loginName, JsonCallback<BaseResponse<ScreenVideo>> callback) {
+    public void GetScreenVideo(String loginName, JsonCallback<BaseResponse<Page<ScreenVideo>>> callback) {
         if (loginName == null || "3".equals(App.SCHOOLTYPE)) {
-            OkGo.<BaseResponse<ScreenVideo>>get(getAbsoluteUrl(Constants.GetScreenVideoList))
+            OkGo.<BaseResponse<Page<ScreenVideo>>>get(getAbsoluteUrl(Constants.GetScreenVideoList))
                     .execute(callback);
         } else {
-            OkGo.<BaseResponse<ScreenVideo>>get(getAbsoluteUrl(Constants.GetScreenVideoBySchoolName))
+            OkGo.<BaseResponse<Page<ScreenVideo>>>get(getAbsoluteUrl(Constants.GetScreenVideoBySchoolName))
                     .params("loginName", loginName)
                     .execute(callback);
         }

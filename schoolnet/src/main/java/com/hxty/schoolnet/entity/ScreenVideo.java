@@ -1,6 +1,5 @@
 package com.hxty.schoolnet.entity;
 
-import java.util.List;
 
 /**
  * Created by chen on 2017/3/27.
@@ -8,11 +7,6 @@ import java.util.List;
 
 public class ScreenVideo {
 
-    private int total;
-
-    private List<ScreenVideoRow> rows;
-
-    public class ScreenVideoRow {
         private int SchoolId;
         private int KeyId;
         private int State;
@@ -67,21 +61,4 @@ public class ScreenVideo {
         public void setRemark(String remark) {
             Remark = remark;
         }
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public List<ScreenVideoRow> getRows() {
-        return rows;
-    }
-
-    public void setRows(List<ScreenVideoRow> rows) {
-        this.rows = rows;
-    }
 }
