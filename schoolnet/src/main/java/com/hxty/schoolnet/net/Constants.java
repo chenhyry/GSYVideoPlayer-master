@@ -3,15 +3,16 @@ package com.hxty.schoolnet.net;
 public class Constants {
 
     //    https://www.xiaoyuanping.cn/help  文档地址
-    public static final String BASE_HOST = "xyp.bjedu.cn";
-    public static final String BASE_URL = "https://xyp.bjedu.cn/";
-        public static final String HOME_IMAGE_URL = "https://xyp.bjedu.cn:8888/";
-    public static final String IMAGE_URL = "https://xyp.bjedu.cn:8888/";//二级栏目图片和更新apk地址
+//    public static final String BASE_HOST = "xyp.bjedu.cn";
+//    public static final String BASE_URL = "https://xyp.bjedu.cn/";
+//        public static final String HOME_IMAGE_URL = "https://xyp.bjedu.cn:8888/";
+//    public static final String IMAGE_URL = "https://xyp.bjedu.cn:8888/";//二级栏目图片和更新apk地址
 
-//    public static final String BASE_HOST = "58.129.247.147";
-//    public static final String BASE_URL = "https://58.129.247.147/";
-//    public static final String HOME_IMAGE_URL = "https://58.129.247.147:8001/";
-//    public static final String IMAGE_URL = "https://58.129.247.147:8001/";
+    //备机
+    public static final String BASE_HOST = "58.129.247.147";
+    public static final String BASE_URL = "https://58.129.247.147/";
+    public static final String HOME_IMAGE_URL = "https://58.129.247.147:8001/";
+    public static final String IMAGE_URL = "https://58.129.247.147:8001/";
 
     public static final String GET_NEW_VERSION_URL = "api/SchoolNet/GetAndroidNewVersion";
     public static final String AddDviceRunningLog = "api/SchoolNet/AddDviceRunningLog";
